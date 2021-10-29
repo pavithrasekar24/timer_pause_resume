@@ -5,7 +5,7 @@ export default class App extends React.Component {
     super(props);
     this.state = {
       initial: 1000,
-      timer: 120,
+      timer: 10,
       pauseTime: false,
       resumeTime: true,
     };
@@ -16,7 +16,7 @@ export default class App extends React.Component {
     }, this.state.initial);
   }
   reducetimer = () => {
-    if (!this.state.pauseTime) {
+    if (!this.state.pauseTime && this.state.timer !== 0) {
       this.setState({ timer: this.state.timer - 1 });
     } else {
       clearInterval();
